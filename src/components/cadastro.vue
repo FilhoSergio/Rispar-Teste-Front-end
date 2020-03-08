@@ -62,9 +62,9 @@
           <v-btn color="primary pull-right" @click="submit" >Próximo</v-btn>
         </div> -->
         <v-card-actions>
-          <v-btn class="m-4" @click="clear" color="primary">Limpar</v-btn>
+          <v-btn class="m-4 main-color-bg" @click="clear" >Limpar</v-btn>
           <v-spacer></v-spacer>
-          <v-btn color="primary pull-right" @click="submit">Próximo</v-btn>
+          <v-btn class="main-color-bg" @click="submit">Próximo</v-btn>
         </v-card-actions>
 
         <!-- <v-btn class="m-4" @click="clear" color="primary">clear</v-btn> -->
@@ -157,4 +157,10 @@ export default {
 .pull-right {
   float: right;
 }
+.main-color-text {
+    color: #1e256d;
+ }
+ .main-color-bg {
+    background: #1e256d;
+ }
 </style>

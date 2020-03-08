@@ -7,27 +7,32 @@
       >
 
       <v-toolbar-title class="m-l-12 primary-color" style=" margin-left: 55px;">
-        Olá , :) solicite o seu crédito Rispar :)</v-toolbar-title
+        Olá , solicite o seu crédito Rispar :)</v-toolbar-title
       >
     </v-app-bar>
     <v-content>
-      <!-- <v-container class="fill-height" fluid> -->
-      <v-row>
-        <v-col cols="12" sm="3" md="4">
-          <SideBar />
-        </v-col>
-        <!-- <v-col cols="12" sm="8" md="8">
+      <v-container fluid>
+        <v-row>
+          <v-col cols="12" sm="3" md="4">
+            <SideBar />
+          </v-col>
+          <!-- <v-col cols="12" sm="8" md="8">
           <h3 class="headline">Cadastro</h3>
           <small> Informe seus dados e vamos criar sua conta </small>
           <Cadastro />
         </v-col> -->
-        <v-col cols="12" sm="8" md="8">
-          <h3 class="headline">Pedido</h3>
-          <small> De quanto você precisa ? </small>
-          <Pedido />
-        </v-col>
-      </v-row>
-      <!-- </v-container> -->
+          <v-col cols="12" sm="8" md="8">
+            <h3 class="headline">Pedido</h3>
+            <small> De quanto você precisa ? </small>
+            <Pedido />
+          </v-col>
+          <!-- <v-col cols="12" sm="8" md="8">
+          <h3 class="headline">Trânsferência</h3>
+          <small> Última etapda , tranferência da garantia </small>
+       
+        </v-col> -->
+        </v-row>
+      </v-container>
     </v-content>
 
     <v-footer padless>
@@ -46,7 +51,7 @@ import Pedido from "@/components/pedido";
 export default {
   name: "Home ",
   components: { SideBar, Pedido },
-  // components: { SideBar, Cadastro, Pedido },
+  // components: { SideBar, Cadastro},
 
   props: {
     source: String

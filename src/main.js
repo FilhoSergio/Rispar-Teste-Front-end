@@ -7,11 +7,22 @@ import Vuetify from "vuetify"
 import "vuetify/dist/vuetify.min.css";
 import axios from "axios";
 import Vuelidate from "vuelidate";
+import VueCurrencyFilter from 'vue-currency-filter'
 import "material-design-icons-iconfont/dist/material-design-icons.css";
 Vue.config.productionTip = false;
 
-Vue.use(Vuelidate);
 Vue.use(Vuetify);
+Vue.use(Vuelidate);
+
+
+Vue.use(VueCurrencyFilter, {
+  symbol: 'R$',
+  thousandsSeparator: '.',
+  fractionCount: 2,
+  fractionSeparator: ',',
+  symbolPosition: 'front',
+  symbolSpacing: true
+});
 
 new Vue({
   router,
