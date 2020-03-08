@@ -19,19 +19,16 @@
           @input="$v.email.$touch()"
           @blur="$v.email.$touch()"
         ></v-text-field>
-
-        <v-radio-group :v-model="row" row>
-          <v-radio
-            label="Masculino"
-            color="secondary"
-            value="radio-1"
-          ></v-radio>
-          <v-radio
-            label="Feminino"
-            color="secondary"
-            :value="radio - 2"
-          ></v-radio>
-        </v-radio-group>
+        <div class="mt-2">
+          <p>Sexo / Gênero (opcional)</p>
+          <input type="radio" v-model="gender" v-bind:value="a" />Masculino
+          <input
+            type="radio"
+            class="ml-5"
+            v-model="gender"
+            v-bind:value="b"
+          />Feminino
+        </div>
 
         <v-col cols="12" sm="6" md="4">
           <v-menu
@@ -58,20 +55,15 @@
             ></v-date-picker>
           </v-menu>
         </v-col>
-        <!-- <div>
-          <v-btn color="primary pull-right" @click="submit" >Próximo</v-btn>
-        </div> -->
-        <v-card-actions>
-          <v-btn class="m-4 main-color-bg" @click="clear" >Limpar</v-btn>
-          <v-spacer></v-spacer>
-          <v-btn class="main-color-bg" @click="submit">Próximo</v-btn>
-        </v-card-actions>
-
-        <!-- <v-btn class="m-4" @click="clear" color="primary">clear</v-btn> -->
+     
+        <!-- <v-card-actions>
+          <v-btn class="m-4 main-color-bg text-white" @click="clear"
+            >Limpar</v-btn
+          >
+          <v-spacer></v-spacer>   
+        </v-card-actions> -->
       </form>
     </v-container>
-   
-   
   </v-card>
 </template>
 <script>
@@ -83,14 +75,12 @@ export default {
 
   validations: {
     name: { required, maxLength: maxLength(100) },
-    email: { required, email },
-    select: { required }
+    email: { required, email }
   },
 
   data: () => ({
     name: "",
     email: "",
-    checkbox: false,
     form_data: {},
     column: null,
     row: null,
@@ -99,7 +89,9 @@ export default {
     menu: false,
     modal: false,
     menu2: false,
-    red: true
+    a: 0,
+    b: 1,
+    gender: 0
   }),
 
   computed: {
@@ -139,6 +131,7 @@ export default {
       this.email = "";
       this.checkbox = false;
       this.dateInicial = null;
+      this.gender = null;
     },
     formatDate(date) {
       if (!date) return null;
@@ -158,9 +151,12 @@ export default {
   float: right;
 }
 .main-color-text {
-    color: #1e256d;
- }
- .main-color-bg {
-    background: #1e256d;
- }
+  color: #1e256d;
+}
+.main-color-bg {
+  background: #1e256d;
+}
+.text-white {
+  color: white;
+}
 </style>

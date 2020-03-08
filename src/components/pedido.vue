@@ -3,8 +3,12 @@
     <v-container fluid>
       <v-card-text>
         <v-row>
-          <v-col cols="12" class="mt-5">
+          <v-col cols="12" class="mt-5 ">
+            <p class="calculate-amount text-center mt-5">
+              De quanto você precisa?
+            </p>
             <vue-slider
+              class="mt-12"
               v-model="valorAplicado"
               :min="5000"
               :max="50000"
@@ -13,16 +17,14 @@
               :tooltip="'always'"
               :tooltip-formatter="formatter2"
             ></vue-slider>
-            <p  class="inline"> <b> R$5,000 </b></p>
-            <p class="pull-right inline" 
-            > <b>R$50,000 </b></p>
+            <p class="inline"><b> R$ 5.000,00 </b></p>
+            <p class="pull-right inline"><b>R$ 50.000,00 </b></p>
             <div class="text-center mt-5">
               <v-btn
                 class="ma-2"
                 outlined
                 color="#1e256d"
-               
-                 @click="parcelas = 6"
+                @click="parcelas = 6"
                 :value="6"
                 >6x</v-btn
               >
@@ -34,10 +36,20 @@
                 :value="12"
                 >12x</v-btn
               >
-              <v-btn class="ma-2" outlined color="#1e256d"  @click="parcelas = 18" value="18"
+              <v-btn
+                class="ma-2"
+                outlined
+                color="#1e256d"
+                @click="parcelas = 18"
+                value="18"
                 >18x</v-btn
               >
-              <v-btn class="ma-2" outlined color="#1e256d"  @click="parcelas = 24" value="24"
+              <v-btn
+                class="ma-2"
+                outlined
+                color="#1e256d"
+                @click="parcelas = 24"
+                value="24"
                 >24x</v-btn
               >
             </div>
@@ -46,7 +58,10 @@
             <p class="calculate-amount text-center mt-5">
               {{ valorFinal | currency }}
             </p>
-            <p class="text-center">Por mês <sup> (1) </sup></p>
+            <p class="text-center">
+              Por mês <sup> (1) </sup> em
+              <b class="f-20 main-color-text"> {{ parcelas }} X </b>
+            </p>
             <hr class="main-color-text" style="border: 1px solid #1e256d;" />
             <br />
             <small>
@@ -57,18 +72,9 @@
         </v-row>
       </v-card-text>
     </v-container>
-    <v-card-actions>
-      <v-btn class="m-4 main-color-bg text-white" @click="GetV()">Limpar</v-btn>
-      <v-spacer></v-spacer>
-      <v-btn class="main-color-bg text-white" @click="Generate()"
-        >Próximo</v-btn
-      >
-    </v-card-actions>
   </v-card>
 </template>
 <script>
-
-import ApiWallet from "@/services/apiWallet.js";
 import VueSlider from "vue-slider-component";
 import "vue-slider-component/theme/default.css";
 export default {
@@ -83,7 +89,6 @@ export default {
       parcelas: 6,
       valorFinal: null,
       cf: null,
-
       formatter2: v => `R$${("" + v).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
     };
   },
@@ -93,13 +98,10 @@ export default {
       console.log(newValorAplicado, oldValorAplicado);
       this.GetV();
     },
-    parcelas: function(newValue, oldValue){
-        console.log(newValue , oldValue , this.parcelas);
-        this.GetV();
+    parcelas: function(newValue, oldValue) {
+      console.log(newValue, oldValue, this.parcelas);
+      this.GetV();
     }
-  },
-  created() {
-    this.GetV();
   },
   computed: {
     CalculatePriceFinal() {
@@ -108,26 +110,16 @@ export default {
       return this.valorAplicado;
     }
   },
+  created() {
+    this.GetV();
+  },
+  mounted() {},
+
   methods: {
     GetV() {
       this.valorFinal =
         (this.valorAplicado * Math.pow(1 + this.percentMonth, this.parcelas)) /
         this.parcelas;
-    },
-    Generate() {
-    
-     ApiWallet
-      .post("https://l34yykpi8i.execute-api.us-east-1.amazonaws.com/Prod/wallet",{
-            headers: {
-                'Access-Control-Allow-Origin': 'http://localhost:8080/',
-                'Access-Control-Request-Method': 'GET',
-                'Accept':'*'
-            }
-        })
-        .then(res => {
-          console.log("response", res);
-        })
-        .catch(error => console.log("Houve um erro",error));
     }
   }
 };
@@ -153,10 +145,13 @@ export default {
   background: #1e256d !important;
 }
 
-.pull-right{
-    float: right;
+.pull-right {
+  float: right;
 }
-.inline{
-    display: inline-block;
+.inline {
+  display: inline-block;
+}
+.f-20 {
+  font-size: 20px;
 }
 </style>
