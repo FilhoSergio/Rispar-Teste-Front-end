@@ -6,7 +6,8 @@
 
 Para Desabilitar o cors com Google CHROME utilizei essa extensão , já no Firefox não houve a necessidade.
 
-![Screenshot](src/assets/allowCors.gif) 
+![Screenshot](src/assets/allowCors.gif) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_shield)
+
 
 Através do arquivo vue.config.js o proxy redireciona as consultas para serem realizadas da mesma origem .
 ```
@@ -48,3 +49,7 @@ npm run lint
 ```
 
 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_large)
