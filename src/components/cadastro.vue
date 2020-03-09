@@ -56,12 +56,12 @@
           </v-menu>
         </v-col>
 
-        <!-- <v-card-actions>
+        <v-card-actions>
           <v-btn class="m-4 main-color-bg text-white" @click="clear"
             >Limpar</v-btn
           >
           <v-spacer></v-spacer>   
-        </v-card-actions> -->
+        </v-card-actions>
       </form>
     </v-container>
   </v-card>
@@ -122,13 +122,21 @@ export default {
   },
   async mounted(){
       try{
-        console.log(this)
+        console.log(this.$emit('update'))
+        // this.$children[0].$children.map(irmao=>{
+        //   console.log("irmão", irmao.changeFormValue)
+        // })
+        // console.log(this.$root)
+
       }catch(err){
         console.error()
 
       }
   },
   methods: {
+    teste(){
+      console.log(this.$emit('update', this.e6))
+    },
     submit() {
       this.$v.$touch();
     },

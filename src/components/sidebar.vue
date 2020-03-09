@@ -1,20 +1,18 @@
 <template>
-  <v-stepper v-model="e6" vertical non-linear>
+  <v-stepper v-model="teste.id" vertical non-linear @update="teste">
     <v-stepper-step :complete="e6 > 1" step="1" color="#1e256d">
       Cadastro
       <small>Dados iniciais</small>
     </v-stepper-step>
 
     <v-stepper-content step="1">
-      <h3 class="headline">Cadastro</h3>
-      <small> Informe seus dados e vamos criar sua conta </small>
-      <Cadastro />
-      <v-card-actions>
+      
+      <!-- <v-card-actions>
         <v-spacer> </v-spacer>
         <v-btn color="#1e256d" class="text-white" @click="e6 = 2"
           >Próximo</v-btn
         >
-      </v-card-actions>
+      </v-card-actions> -->
     </v-stepper-content>
 
     <v-stepper-step :complete="e6 > 2" step="2" color="#1e256d"
@@ -57,11 +55,16 @@
 <script>
 import ApiWallet from "@/services/apiWallet.js";
 import Transferencia from "@/components/transferencia";
-import Cadastro from "@/components/cadastro";
 import Pedido from "@/components/pedido";
 export default {
-  components: { Cadastro, Pedido, Transferencia },
-  props: ["post"],
+  components: {  Pedido, Transferencia },
+  props: {
+    teste:{
+      type: Object
+    }
+  },
+
+
   data() {
     return {
       e6: 1,
@@ -81,6 +84,9 @@ export default {
           this.e6 = 2;
           console.error(error);
         });
+    },
+    teste(){
+      this.e6 = 1
     }
   }
 };

@@ -1,7 +1,7 @@
 <template>
   <v-app id="app">
-    <v-app-bar app color="#1e256d" dark>
-      <img src="@/assets/logo_svg.svg" alt="Logo" height="80%" />
+    <v-app-bar app color="white" dark>
+      <img src="@/assets/logo.jpg" alt="Logo" height="80%" />
       <v-toolbar-title class="primary-color">
         | Teste Front end</v-toolbar-title
       >
@@ -12,8 +12,13 @@
     <v-content>
       <v-container fluid>
         <v-row>
-          <v-col cols="12">
-            <SideBar />
+          <v-col cols="12" sm="4" md="4">
+            <SideBar :data="teste"/>
+          </v-col>
+          <v-col cols="12" sm="8" md="8">
+            <h3 class="headline">Cadastro</h3>
+            <small> Informe seus dados e vamos criar sua conta </small>
+            <Cadastro />
           </v-col>
         </v-row>
       </v-container>
@@ -30,17 +35,30 @@
 
 <script>
 import SideBar from "@/components/sidebar";
+import Cadastro from "@/components/cadastro";
 
 export default {
   name: "home",
-  components: { SideBar },
+  components: { SideBar, Cadastro },
   props: {},
-  data: () => ({})
+  data: () => ({
+    teste: {
+      id:1
+    }
+  }),
+  async mounted(){
+    try{
+      console.log(this.$emit('update', this.teste))
+    }catch (error) {
+      console.error(error)
+    }
+  }
+
 };
 </script>
 <style>
 .primary-color {
-  color: white;
+  color: black;
 }
 .pointer {
   cursor: pointer;
