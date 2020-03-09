@@ -1,10 +1,10 @@
 # Rispar-teste para Front end 
 
- Para acessar o proxy pass Allow CORS: Access-Control-Allow-Origin
+ 
 
 ## Pré Requisitos
 
-Para Desabilitar o cors com Google CHORME utilizei essa extensão , já no Firefox não houve a necessidade.
+Para Desabilitar o cors com Google CHROME utilizei essa extensão , já no Firefox não houve a necessidade.
 
 ![Screenshot](src/assets/allowCors.gif) 
 
