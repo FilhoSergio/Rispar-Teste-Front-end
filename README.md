@@ -2,12 +2,14 @@
 
  [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_small)
  [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_shield)
+ [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Pré Requisitos
 
 Para Desabilitar o cors com Google CHROME utilizei essa extensão , já no Firefox não houve a necessidade.
 
-![Screenshot](src/assets/allowCors.gif) [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_shield)
+![Screenshot](src/assets/allowCors.gif) [![FOSSA Status]
+
 
 
 Através do arquivo vue.config.js o proxy redireciona as consultas para serem realizadas da mesma origem .
