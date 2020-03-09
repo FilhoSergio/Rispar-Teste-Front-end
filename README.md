@@ -8,7 +8,7 @@
 
 Para Desabilitar o cors com Google CHROME utilizei essa extensão , já no Firefox não houve a necessidade.
 
-![Screenshot](src/assets/allowCors.gif) [![FOSSA Status]
+![Screenshot](src/assets/allowCors.gif)
 
 
 
