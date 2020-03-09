@@ -48,3 +48,5 @@ npm run lint
 ```
 
 
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_large)
