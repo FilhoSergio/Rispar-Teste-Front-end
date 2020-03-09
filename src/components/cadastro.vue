@@ -91,7 +91,7 @@ export default {
     menu2: false,
     a: 0,
     b: 1,
-    gender: 0
+    gender: null
   }),
 
   computed: {
