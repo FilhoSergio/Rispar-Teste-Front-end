@@ -1,6 +1,7 @@
 # Rispar-teste para Front end 
 
- 
+ [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=small)](https://app.fossa.com/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_small)
+ [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2FFilhoSergio%2FRispar-Teste-Front-end?ref=badge_shield)
 
 ## Pré Requisitos
 
