@@ -2,66 +2,86 @@
   <v-card>
     <v-container>
       <form>
-        <v-text-field
-          v-model="name"
-          :error-messages="nameErrors"
-          :counter="100"
-          label="Nome"
-          required
-          @input="$v.name.$touch()"
-          @blur="$v.name.$touch()"
-        ></v-text-field>
-        <v-text-field
-          v-model="email"
-          :error-messages="emailErrors"
-          label="E-mail"
-          required
-          @input="$v.email.$touch()"
-          @blur="$v.email.$touch()"
-        ></v-text-field>
-        <div class="mt-2">
-          <p>Sexo / Gênero (opcional)</p>
+        <v-col cols="12">
+          <p class="inline-block mr-145">Nome</p>
+          <v-text-field
+            v-model="name"
+            :error-messages="nameErrors"
+            label=""
+            required
+            full-width
+            autofocus
+            dense
+            solo
+            class="inline-block max-width-input"
+            @input="$v.name.$touch()"
+            @blur="$v.name.$touch()"
+          ></v-text-field>
+        </v-col>
+
+        <v-col cols="12">
+          <p class="inline-block mr-145">E-mail</p>
+          <v-text-field
+            v-model="email"
+            :error-messages="emailErrors"
+            label=""
+            solo
+            dense
+            class="inline-block max-width-input"
+            required
+            @input="$v.email.$touch()"
+            @blur="$v.email.$touch()"
+          ></v-text-field>
+        </v-col>
+        <v-col cols="12" class="mt-2">
+          <p class="inline-block m-145" >Sexo</p>
           <input type="radio" v-model="gender" v-bind:value="a" />Masculino
           <input
             type="radio"
-            class="ml-5"
+            class="ml-5 inline-block"
             v-model="gender"
             v-bind:value="b"
           />Feminino
-        </div>
+        </v-col>
 
-        <v-col cols="12" sm="6" md="4">
+        <v-col cols="12">
+          <p class="inline-block mr-10">Data de Nascimento</p>
           <v-menu
-            v-model="menu2"
+            ref="menu"
+            class="inline-block"
+            v-model="menu"
             :close-on-content-click="false"
-            :nudge-right="40"
+            :return-value.sync="date"
             transition="scale-transition"
             offset-y
             min-width="290px"
           >
             <template v-slot:activator="{ on }">
               <v-text-field
+                class="inline-block "
                 v-model="dateInicialFormatted"
-                label="Data de Nascimento"
-                prepend-icon="event"
+                label=""
+                prepend-icon=""
                 readonly
+                dense
+                solo
                 v-on="on"
               ></v-text-field>
             </template>
             <v-date-picker
               locale="pt-br"
               v-model="dateInicial"
-              @input="menu2 = false"
-            ></v-date-picker>
+              no-title
+              scrollable
+            >
+              <v-spacer></v-spacer>
+              <v-btn text color="primary" @click="menu = false">Cancelar</v-btn>
+              <v-btn text color="primary" @click="$refs.menu.save(date)"
+                >OK</v-btn
+              >
+            </v-date-picker>
           </v-menu>
         </v-col>
-     
-        <!-- <v-card-actions>
-          <v-btn class="m-4 main-color-bg text-white" @click="clear"
-            >Limpar</v-btn
-          >
-          <v-spacer></v-spacer>   
-        </v-card-actions> -->
       </form>
     </v-container>
   </v-card>
@@ -120,7 +140,7 @@ export default {
       return this.dateInicial ? this.formatDate(this.dateInicial) : "";
     }
   },
-
+  async mounted() {},
   methods: {
     submit() {
       this.$v.$touch();
@@ -158,5 +178,17 @@ export default {
 }
 .text-white {
   color: white;
+}
+.inline-block {
+  display: inline-block !important;
+}
+.mr-145 {
+  margin-right: 145px !important;
+}
+.max-width-input {
+  width: 330px;
+}
+.m-145{
+  margin-right:145px;
 }
 </style>
